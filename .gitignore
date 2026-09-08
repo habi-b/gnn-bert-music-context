@@ -10,6 +10,7 @@ cookies_backup.txt
 
 data/raw/
 data/processed/*.pt
+!data/processed/sample_graphs/*.pt
 data/processed/fma_graphs/
 data/processed/fma_mel_specs/
 data/processed/musiccaps_graphs/
