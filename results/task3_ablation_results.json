@@ -1,18 +1,18 @@
 {
   "BERT-only": {
-    "test_macro_f1": 0.5522425004824029,
-    "test_micro_f1": 0.7158836689038032
+    "test_macro_f1": 0.5351107422094342,
+    "test_micro_f1": 0.6926605504587156
   },
   "GNN-only": {
     "test_macro_f1": 0.0,
     "test_micro_f1": 0.0
   },
   "Early-Concat": {
-    "test_macro_f1": 0.532984437897768,
-    "test_micro_f1": 0.7123287671232876
+    "test_macro_f1": 0.599796864096542,
+    "test_micro_f1": 0.7516778523489933
   },
   "Cross-Attention (Fusion)": {
-    "test_macro_f1": 0.5328676757900734,
-    "test_micro_f1": 0.7006651884700665
+    "test_macro_f1": 0.6094413491531298,
+    "test_micro_f1": 0.7366167023554604
   }
 }

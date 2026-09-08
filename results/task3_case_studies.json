@@ -4,24 +4,24 @@
     "caption": "The low quality recording features a tutorial that contains a flat male vocal talking over acoustic guitar strummed chords. The recording is noisy and in mono.",
     "top5_attended_words": [
       [
-        ".",
-        0.03636329993605614
-      ],
-      [
-        "[CLS]",
-        0.03397727385163307
-      ],
-      [
-        "recording",
-        0.03347206488251686
-      ],
-      [
         "mono",
-        0.03304446116089821
+        0.04208828881382942
+      ],
+      [
+        ".",
+        0.04173903167247772
       ],
       [
         "noisy",
-        0.03300875797867775
+        0.038845766335725784
+      ],
+      [
+        "low",
+        0.03756396099925041
+      ],
+      [
+        "[CLS]",
+        0.03561917692422867
       ]
     ],
     "true_tags": [
@@ -35,24 +35,24 @@
     "caption": "This jazz song features a saxophone playing the main melody. This is accompanied by percussion playing a jazz beat. A piano plays jazz chords. The double bass plays the root notes with flourishes and fills. This song is the outro of a song and abruptly pauses. The mood of this song is happy. There are no voices in this song. This is an instrumental song. This song can be played in a luxury bar.",
     "top5_attended_words": [
       [
-        ".",
-        0.015747826546430588
+        "saxophone",
+        0.01734464429318905
       ],
       [
-        ".",
-        0.015604323707520962
+        "piano",
+        0.016735339537262917
       ],
       [
-        ".",
-        0.01531499344855547
+        "instrumental",
+        0.015332142822444439
       ],
       [
-        ".",
-        0.01503602135926485
+        "bass",
+        0.014237575232982635
       ],
       [
-        ".",
-        0.014955718070268631
+        "features",
+        0.014209219254553318
       ]
     ],
     "true_tags": [
@@ -65,24 +65,24 @@
     "caption": "This instrumental song features a melody played using bells. There are chiming sounds played in the background like clockwork. A theremin plays a vibrato note. There is no percussion in this song.  This song has a spooky theme and can be used in a children's scary movie. There is a lot of white noise that can be heard in this low quality recording. There are no voices in this song.",
     "top5_attended_words": [
       [
-        ".",
-        0.020013265311717987
+        "instrumental",
+        0.017874548211693764
       ],
       [
-        ".",
-        0.016040880233049393
+        "##min",
+        0.014925694093108177
       ],
       [
-        ".",
-        0.015951409935951233
+        "recording",
+        0.014816929586231709
       ],
       [
-        "this",
-        0.015935422852635384
+        "low",
+        0.01462787576019764
       ],
       [
-        ".",
-        0.015684418380260468
+        "[CLS]",
+        0.014468246139585972
       ]
     ],
     "true_tags": [
