@@ -1,6 +1,6 @@
 # GNN-Based BERT for Understanding Context from Music
 
-**Course:** CSE425 / EEE474 / CSE715 (Neural Networks)
+**Course:** CSE425
 **Submission deadline:** 8 September, 2026
 
 A hybrid BERT + Graph Neural Network system for music context understanding,
@@ -223,17 +223,3 @@ itself. Expected, and a clean illustration of the supervised-vs-zero-shot
 tradeoff.
 
 ---
-
-## Known limitations (for the report's discussion section)
-
-- Task 1's pseudo-text (filenames) is a weaker signal than real captions
-  would provide — by design, given MagnaTagATune's lack of captions.
-- Task 2's GNN uses very coarse graph features (5-6 nodes/track); a more
-  fine-grained segmentation could likely close some of the CNN gap.
-- Task 3's macro-F1 on the ~116-clip test set is somewhat volatile for
-  rare tags (few positive examples per split); micro-F1 is more stable.
-- Task 3's cross-attention weights are not sharply interpretable, likely
-  a data-scale limitation (~927 training examples for a 110M-parameter
-  model).
-- All MusicCaps-based results (Tasks 3-4) are on a ~1,150-clip subset,
-  not the full 5,521-clip dataset, due to YouTube audio availability.
