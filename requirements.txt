@@ -1,0 +1,18 @@
+torch
+torchvision
+torchaudio
+torch-geometric
+transformers
+librosa
+numpy
+pandas
+scikit-learn
+matplotlib
+tqdm
+jupyter
+yt-dlp
+requests
+
+# System dependencies (not installable via pip -- see README):
+#   - Deno (https://deno.land) + yt-dlp-ejs, for downloading MusicCaps audio
+#   - ffmpeg, required by yt-dlp for audio extraction/trimming

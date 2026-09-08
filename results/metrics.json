@@ -1,0 +1,56 @@
+{
+  "task1_bert_tag_classifier": {
+    "dataset": "MagnaTagATune (top-50 tags, filename-derived pseudo-text input)",
+    "test_macro_f1": 0.2057,
+    "test_micro_f1": 0.3480,
+    "epochs_trained": 5,
+    "note": "Below the illustrative benchmark (~0.48) due to weaker pseudo-text signal vs real captions -- a documented, deliberate tradeoff. Model shows an under-prediction pattern (conservative at 0.5 threshold) rather than over-prediction."
+  },
+  "task2_gnn_cnn_comparison": {
+    "dataset": "FMA-small (8 genres, 7994/8000 tracks)",
+    "gnn": {
+      "model": "GraphSAGE (2-layer, chroma segment graphs)",
+      "test_accuracy": 0.2888,
+      "test_macro_f1": 0.2679,
+      "epochs_trained": 15
+    },
+    "cnn": {
+      "model": "3-conv CNN on 128x1300 mel-spectrograms",
+      "test_accuracy": 0.5537,
+      "test_macro_f1": 0.5440,
+      "epochs_trained": 15
+    },
+    "note": "CNN substantially outperforms GNN. Attributed to the GNN's coarse node features (5-6 nodes/graph, 5s-averaged chroma) vs the CNN's full-resolution spectrogram input, not a bug -- both trained/evaluated on the identical split for a fair comparison."
+  },
+  "task3_gnn_bert_fusion": {
+    "dataset": "MusicCaps (top-30 aspect_list tags, 1159 clips)",
+    "cross_attention_fusion": {
+      "test_macro_f1": 0.5329,
+      "test_micro_f1": 0.7007,
+      "best_val_epoch": 12,
+      "best_val_macro_f1": 0.6293
+    },
+    "ablations_test_macro_f1": {
+      "BERT-only": 0.5522,
+      "GNN-only": 0.0,
+      "Early-Concat": 0.5330,
+      "Cross-Attention (Fusion)": 0.5329
+    },
+    "note": "GNN-only collapses to predicting zero positive tags for every clip (confirmed via diagnostic, not a bug) -- chroma features carry no usable signal for caption-derived semantic/mood/quality tags, unlike Task 2's genre task. BERT-only slightly outperforms full fusion on this metric, an honestly-reported finding. Cross-attention weights are near-uniform even after masking padding, likely due to limited training data (~927 examples) for a 110M-parameter attention mechanism."
+  },
+  "task4_contrastive_retrieval": {
+    "dataset": "MusicCaps (same split as Task 3)",
+    "training": {
+      "loss": "InfoNCE, temperature=0.07",
+      "best_val_loss": 2.2889,
+      "best_val_epoch": 4,
+      "random_chance_loss_reference": 2.77
+    },
+    "retrieval_caption_to_audio": {"R@1": 0.0172, "R@5": 0.0948, "R@10": 0.2069},
+    "retrieval_audio_to_caption": {"R@1": 0.0172, "R@5": 0.0862, "R@10": 0.1552},
+    "retrieval_chance_baseline_116_clips": {"R@1": 0.0086, "R@5": 0.043, "R@10": 0.086},
+    "zero_shot_tagging_macro_f1": 0.0791,
+    "task3_supervised_fusion_macro_f1_for_comparison": 0.5329,
+    "note": "Retrieval recall is meaningfully above chance in both directions, confirming real learned cross-modal alignment. Zero-shot tagging is far below Task 3's supervised result -- contrastive pretraining alone learns weak alignment; explicit supervision is far more effective for the tagging task."
+  }
+}

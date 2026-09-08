@@ -1,0 +1,71 @@
+# GNN-BERT Music Context Understanding — Configuration
+# Course: CSE425 / EEE474 / CSE715 (Neural Networks)
+
+project:
+  name: gnn-bert-music-context
+  deadline: "2026-10-02"
+
+datasets:
+  task1_magnatagatune:
+    source: "https://huggingface.co/datasets/confit/magnatagatune"
+    num_tags: 50
+    text_source: "cleaned mp3_path filename (no native captions available)"
+  task2_fma:
+    source: "https://os.unil.cloud.switch.ch/fma/fma_small.zip"
+    num_genres: 8
+    num_tracks: 8000
+  task3_task4_musiccaps:
+    source: "https://huggingface.co/datasets/google/MusicCaps"
+    audio_acquisition: "yt-dlp (requires Deno + yt-dlp-ejs + cookies.txt + ffmpeg)"
+    num_clips_target: 1150
+    num_tags: 30  # smaller than Task 1's 50 -- reasoned from smaller dataset size (~1159 vs ~25863 clips)
+
+preprocessing:
+  sample_rate: 22050
+  chroma_bins: 12
+  mel_bins: 128
+  fma_segment_sec: 5
+  musiccaps_segment_sec: 2   # shorter since MusicCaps clips are only 10s
+  mel_fixed_frames: 1300
+  graph_top_k_similarity: 1
+  bert_max_length: 128
+
+task1_bert:
+  model: bert-base-uncased
+  freeze_bert: false
+  batch_size: 16
+  learning_rate: 2.0e-5
+  epochs: 5
+  loss: BCEWithLogitsLoss
+
+task2_gnn:
+  hidden_channels: 64
+  num_layers: 2
+  batch_size: 64
+  learning_rate: 1.0e-3
+  epochs: 15
+  loss: CrossEntropyLoss
+
+task2_cnn:
+  batch_size: 32
+  learning_rate: 1.0e-3
+  epochs: 15
+  loss: CrossEntropyLoss
+
+task3_fusion:
+  gnn_hidden: 64
+  bert_hidden: 768
+  batch_size: 8
+  learning_rate: 2.0e-5
+  max_epochs: 15
+  early_stopping_patience: 3
+  loss: BCEWithLogitsLoss
+
+task4_contrastive:
+  embed_dim: 128
+  batch_size: 16
+  learning_rate: 2.0e-5
+  temperature: 0.07
+  max_epochs: 15
+  early_stopping_patience: 3
+  loss: InfoNCE

@@ -1,0 +1,18 @@
+{
+  "BERT-only": {
+    "test_macro_f1": 0.5522425004824029,
+    "test_micro_f1": 0.7158836689038032
+  },
+  "GNN-only": {
+    "test_macro_f1": 0.0,
+    "test_micro_f1": 0.0
+  },
+  "Early-Concat": {
+    "test_macro_f1": 0.532984437897768,
+    "test_micro_f1": 0.7123287671232876
+  },
+  "Cross-Attention (Fusion)": {
+    "test_macro_f1": 0.5328676757900734,
+    "test_micro_f1": 0.7006651884700665
+  }
+}
